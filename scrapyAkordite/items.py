@@ -11,4 +11,9 @@ import scrapy
 class ScrapyakorditeItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    songName = scrapy.Field()
+    artist = scrapy.Field()
+    lyrics = scrapy.Field()
+    music = scrapy.Field()
+    album = scrapy.Field()
+    chords = scrapy.Field()
