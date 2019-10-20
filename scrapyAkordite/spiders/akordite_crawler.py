@@ -17,4 +17,9 @@ class AkorditeCrawlerSpider(scrapy.Spider):
             linkUrl = song.css("a::attr(href)").get()
             #if linkUrl is not None:
             fullUrl = 'http://www.akordite.com/' + linkUrl
-            pass
+            yield scrapy.Request(fullUrl, callback=self.parse_content, meta = {'songItem': songItem})
+
+
+    def parse_content(self, response):
+        songItem = response.meta.get('songItem')
+        pass
