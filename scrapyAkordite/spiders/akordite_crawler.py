@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapyAkordite.items import ScrapyakorditeItem
+from bs4 import BeautifulSoup as soup, Tag, NavigableString
 
 
 class AkorditeCrawlerSpider(scrapy.Spider):
@@ -15,11 +16,18 @@ class AkorditeCrawlerSpider(scrapy.Spider):
             songItem['songName'] = song.css('a::text').get()
             songItem['artist'] = song.css('td:nth-child(2)::text').get()
             linkUrl = song.css("a::attr(href)").get()
-            #if linkUrl is not None:
             fullUrl = 'http://www.akordite.com/' + linkUrl
             yield scrapy.Request(fullUrl, callback=self.parse_content, meta = {'songItem': songItem})
+        
+        #yield scrapy.Request("http://www.akordite.com/index.php?option=com_chordbase&Itemid=26&task=viewSong&song_id=194065", 
+        #callback=self.parse_content, meta = {'songItem': songItem})
 
 
     def parse_content(self, response):
         songItem = response.meta.get('songItem')
+        contentDiv = response.css('#mainbody table.mainbody tr td.mainbody div.padding ').get()
+        contentList = soup(contentDiv, 'html.parser').contents[0].contents
+        songItem['lyrics'] = contentList[6] if type(contentList[6]) is NavigableString else None
+        songItem['music'] = contentList[8] if type(contentList[8]) is NavigableString else None
+        songItem['album'] = response.css('#Notes') if response.css('#Notes') else None 
         pass
