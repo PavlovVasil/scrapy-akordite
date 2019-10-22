@@ -29,5 +29,5 @@ class AkorditeCrawlerSpider(scrapy.Spider):
         contentList = soup(contentDiv, 'html.parser').contents[0].contents
         songItem['lyrics'] = contentList[6] if type(contentList[6]) is NavigableString else None
         songItem['music'] = contentList[8] if type(contentList[8]) is NavigableString else None
-        songItem['album'] = response.css('#Notes') if response.css('#Notes') else None 
+        songItem['album'] = response.css('#Notes') if response.css('#Notes') else None
         pass
