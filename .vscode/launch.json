@@ -12,7 +12,9 @@
             "module": "scrapy",
             "args": [
                 "crawl",
-                "akordite_crawler"
+                "akordite_crawler",
+                "-o",
+                "akordite.csv"
             ],
             // "program": "${file}",
             // "console": "integratedTerminal"
