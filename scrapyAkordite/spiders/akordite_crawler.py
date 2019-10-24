@@ -26,4 +26,4 @@ class AkorditeCrawlerSpider(scrapy.Spider):
     def parse_content(self, response):
         songItem = response.meta.get('songItem')
         songItem['chords'] = response.css('#mainbody table.mainbody tr td.mainbody div.Song').get()
-        
+        yield songItem
