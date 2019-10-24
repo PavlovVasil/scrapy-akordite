@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup as soup, Tag, NavigableString
 class AkorditeCrawlerSpider(scrapy.Spider):
     name = 'akordite_crawler'
     allowed_domains = ['akordite.com']
-    start_urls = ['http://www.akordite.com/index.php?option=com_chordbase&Itemid=26&initial=&limit=15&limitstart=0']
+    start_urls = ['http://www.akordite.com/index.php?option=com_chordbase&Itemid=26&initial=&limit=1548&limitstart=0']
 
     def parse(self, response):
         songs = response.css("#mainbody table.mainbody td.mainbody .padding table:nth-of-type(2) tr")
