@@ -24,7 +24,7 @@ class ScrapyakorditePipeline(object):
             )''')
 
     def store_db(self, item):
-        self.c.execute('''INSERT INTO items VALUES(?,?,?)''',(
+        self.c.execute('''INSERT INTO songs VALUES(?,?,?)''',(
             item['songName'],
             item['artist'],
             item['chords']
