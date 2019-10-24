@@ -13,7 +13,4 @@ class ScrapyakorditeItem(scrapy.Item):
     # name = scrapy.Field()
     songName = scrapy.Field()
     artist = scrapy.Field()
-    lyrics = scrapy.Field()
-    music = scrapy.Field()
-    album = scrapy.Field()
     chords = scrapy.Field()
