@@ -1,6 +1,6 @@
 # scrapy-akordite
 
-Moving an old spider into a new repository and finishing it. The Scrapy pipelines have been enabled, in order for the scraper to store the scraped data in an SQLite DB. There are roughly 1500 items that get scraped, each of which contains the chords for a popular pop song. The data would then be stored in Firebase, and be used in a newly recreated version of the website, which would use latest React.js, Material UI, and service workers, in order to be a PWA and offer fully functional offline user experience.
+Moving an old spider into a new repository and finishing it. The Scrapy pipelines have been enabled, in order for the scraper to store the scraped data in an SQLite DB. The website is [this one](http://akordite.com/) There are roughly 1500 items that get scraped, each of then containing the chords for a popular pop song. The data would then be stored in Firebase, and be used in a newly recreated version of the website, which would use latest React.js, Material UI, and service workers, in order to be a PWA and offer fully functional offline user experience.
 
 ## How to run the scraper
 To restore the environment do the following:
